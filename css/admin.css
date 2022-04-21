@@ -1,0 +1,70 @@
+/* 
+    Author : Khay Leng
+    Theme  : Online Shopping Appealing Design
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.wrapper {
+    /* border: 1px solid black; */
+    padding: 1%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.center {
+    text-align: center;
+}
+
+.clearfix {
+    float: none;
+    clear: both;
+}
+
+.menu {
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+.menu ul {
+    list-style-type: none;
+}
+
+.menu ul li {
+    display: inline;
+    padding: 2%;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #F79F1F;
+    font-weight: bold;
+}
+
+.menu ul li a:hover {
+    color: #FFC312;
+}
+
+/* Css for Main-Content */
+.main-content {
+    background-color: #f1f2f6;
+    padding: 3% 0;
+}
+
+.col-4 {
+    width: 15%;
+    background-color: white;
+    margin: 2%;
+    padding: 2%;
+    float: left;
+}
+
+/* Css for Footer */
+.footer {
+    background-color: #A3CB38;
+    color: white;
+}
