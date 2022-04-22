@@ -16,6 +16,14 @@
     margin: 0 auto;
 }
 
+.success {
+    color: #009432;
+}
+
+.error {
+    color: #EA2027;
+}
+
 .center {
     text-align: center;
 }

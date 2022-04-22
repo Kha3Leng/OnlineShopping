@@ -56,10 +56,10 @@
         $res = mysqli_query($conn, $sql) or die(mysqli_error());
 
         if ($res == TRUE){
-            $_SESSION['add'] = "Admin added successfully";
+            $_SESSION['add'] = "<div class='success'>Admin added successfully</div>";
             header("location:".SITEURL.'admin/manage-admin.php');
         }else{
-            $_SESSION['add'] = "Fail to add admin";
+            $_SESSION['add'] = "<div class='error'>Fail to add admin</div>";
             header("location:".SITEURL.'admin/manage-admin.php');
         }
     }
