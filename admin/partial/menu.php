@@ -1,4 +1,7 @@
-<?php include('config/constant.php'); ?>
+<?php 
+    include('config/constant.php'); 
+    include('login-check.php');
+?>
 <html>
     <head>
         <title>Online Shopping – Home Page</title>
@@ -16,6 +19,7 @@
                     <li><a href="manage-product.php">Product</a></li>
                     <li><a href="manage-order.php">Order</a></li>
                     <li><a href="manage-customer.php">Customer</a></li>
+                    <li><a href="logout.php" class="error">Log Out</a></li>
                 <ul>
             </div>
         </div>
