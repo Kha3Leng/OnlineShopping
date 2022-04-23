@@ -45,7 +45,7 @@
 
                 <tr>
                     <td colspan="2">
-                        <input type="submit" name="submit" value="Add Admin" class="btn-secondary"/>
+                        <input type="submit" name="submit" value="Add Category" class="btn-secondary"/>
                     </td>
                 </tr>
 
@@ -77,21 +77,23 @@
         
         if(isset($_FILES['image_name'])){
             $image_name = $_FILES['image_name']['name'];
-            //renaming image
-            $temp = explode('.', $image_name);
-            $ext = end($temp);
-            echo $image_name = "category_".rand(000,999).".".$ext;
-            $src_path = $_FILES['image_name']['tmp_name'];
-            $des_path = "../images/category/".$image_name;
-
-            // cannot upload??? because folder is not writable.. run chmod 777 folder
-            $upload =  move_uploaded_file($src_path, $des_path);
-            
-            if( $upload == false){
-                $_SESSION['upload'] = "<div class='error'>Fail to upload image</div>";
-                header("location:".SITEURL."admin/add-category.php");
-                die();
-            }
+            if ($image_name != ''){
+                //renaming image
+                $temp = explode('.', $image_name);
+                $ext = end($temp);
+                echo $image_name = "category_".rand(000,999).".".$ext;
+                $src_path = $_FILES['image_name']['tmp_name'];
+                $des_path = "../images/category/".$image_name;
+    
+                // cannot upload??? because folder is not writable.. run chmod 777 folder
+                $upload =  move_uploaded_file($src_path, $des_path);
+                
+                if( $upload == false){
+                    $_SESSION['upload'] = "<div class='error'>Fail to upload image</div>";
+                    header("location:".SITEURL."admin/add-category.php");
+                    die();
+                }
+            }       
         }else{
             $image_name = '';
         }
