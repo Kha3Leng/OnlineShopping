@@ -11,6 +11,10 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.success {
+    color: #009432;
+}
+
 .error {
     color: #ff6b81;
 }

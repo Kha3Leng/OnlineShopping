@@ -19,6 +19,18 @@
         <h2 class="text-center">Explore Products</h2>
 
         <?php
+
+        if (isset($_SESSION['order'])) {
+            echo $_SESSION['order'];
+            unset($_SESSION['order']);
+        }
+
+        if (isset($_SESSION['customer'])) {
+            echo $_SESSION['customer'];
+            unset($_SESSION['customer']);
+        }
+
+
         $sql = "SELECT * FROM tbl_category WHERE active='Yes' AND featured='Yes' LIMIT 3";
         $res = mysqli_query($conn, $sql);
 
@@ -95,7 +107,7 @@
                             </p>
                             <br>
 
-                            <a href="order.php" class="btn btn-primary">Order Now</a>
+                            <a href="<?php echo SITEURL; ?>order.php?product_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
                         </div>
                     </div>
         <?php
