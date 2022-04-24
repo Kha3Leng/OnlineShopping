@@ -55,12 +55,12 @@
 }
 
 a {
-    color: #ff6b81;
+    color: #0c2461;
     text-decoration: none;
 }
 
 a:hover {
-    color: #ff4757;
+    color: #1e3799;
 }
 
 .btn {
@@ -71,14 +71,14 @@ a:hover {
 }
 
 .btn-primary {
-    background-color: #ff6b81;
+    background-color: #1B1464;
     color: white;
     cursor: pointer;
 }
 
 .btn-primary:hover {
     color: white;
-    background-color: #ff4757;
+    background-color: #5758BB;
 }
 
 h2 {
@@ -134,7 +134,7 @@ fieldset {
 /* CSS for Food SEarch Section */
 
 .food-search {
-    background-image: url(../images/bg.jpg);
+    background-image: url(../images/bg.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
