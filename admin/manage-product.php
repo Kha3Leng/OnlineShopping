@@ -5,10 +5,37 @@
             <div class="wrapper">
                 <strong><h1>Manage Product</h1></strong>
 
+                <br><br>
+
                 <?php 
                     if(isset($_SESSION['add'])){
                         echo $_SESSION['add'];
                         unset($_SESSION['add']);
+                    }
+
+                    if(isset($_SESSION['delete-img'])){
+                        echo $_SESSION['delete-img'];
+                        unset($_SESSION['delete-img']);
+                    }
+
+                    if(isset($_SESSION['delete'])){
+                        echo $_SESSION['delete'];
+                        unset($_SESSION['delete']);
+                    }
+
+                    if(isset($_SESSION['no-product-avail'])){
+                        echo $_SESSION['no-product-avail'];
+                        unset($_SESSION['no-product-avail']);
+                    }
+
+                    if(isset($_SESSION['upload'])){
+                        echo $_SESSION['upload'];
+                        unset($_SESSION['upload']);
+                    }
+
+                    if(isset($_SESSION['update'])){
+                        echo $_SESSION['update'];
+                        unset($_SESSION['update']);
                     }
                 ?>
                 
@@ -23,6 +50,7 @@
                         <th>Description</th>
                         <th>Price</th>
                         <th>Image</th>
+                        <th>Category</th>
                         <th>Featured</th>
                         <th>Active</th>
                         <th>Actions</th>
@@ -38,6 +66,7 @@
                                   $id = $row['id'];
                                   $title = $row['title'];
                                   $description = $row['description'];  
+                                  $category_id = $row['category_id'];  
                                   $price = $row['price'];
                                   $image_name = $row['image_name'];
                                   $featured = $row['featured'];
@@ -60,12 +89,30 @@
                                                 }
                                             ?>
                                         </td>
+                                        <td>
+                                            <?php 
+
+                                            if ($category_id != 0){
+                                                $sql1 = "SELECT title FROM tbl_category WHERE id = $category_id";
+                                                $res1 = mysqli_query($conn, $sql1);
+
+                                                if($res1 == true){
+                                                    if (mysqli_num_rows($res1) == 1 && $row1 = mysqli_fetch_assoc($res1)){
+                                                        echo $row1['title'];
+                                                    }
+                                                }
+                                            }else{
+                                                echo "<div class='error'>No Category Selected</div>";
+                                            }
+                                            ?>
+                                        </td>
                                         <td><?php echo $featured; ?></td>
                                         <td><?php echo $active; ?></td>
                                         <td>
-                                            <a href="#" class="btn-secondary">Update Admin</a>
+                                            <a href="<?php echo SITEURL;?>admin/update-product.php?id=<?php echo $id; ?>" class="btn-secondary">Update Product</a>
                                             &nbsp;&nbsp;&nbsp;&nbsp;
-                                            <a href="#" class="btn-danger">Delete Admin</a>
+                                            <a href="<?php echo SITEURL;?>admin/delete-product.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" 
+                                                class="btn-danger">Delete Product</a>
                                         </td>
                                     </tr>
                                   <?php
