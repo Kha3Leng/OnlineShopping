@@ -20,7 +20,7 @@
 
         <?php
         if (isset($_POST['search'])) {
-            $search = $_POST['search'];
+            $search = mysqli_real_escape_string($conn, $_POST['search']);
 
             $sql = "SELECT * FROM tbl_product WHERE title like '%$search%' or description like '%$search%'";
             $res = mysqli_query($conn, $sql);
